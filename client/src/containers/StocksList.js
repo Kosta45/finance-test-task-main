@@ -6,6 +6,7 @@ import { selectStocks } from '../store/stocksSlice';
 // Сonnect Socket.io
 import io from 'socket.io-client';
 import MainBlockStocks from '../components/MainBlockStocks';
+import AdditionalInformation from '../components/AdditInform';
 
 const socket = io('http://localhost:4000');
 socket.emit('start');
@@ -29,18 +30,29 @@ const StocksList = () => {
     // Output of the main content. Wrapped in <a> tag for possible routing 
     return (
         <>
+            <h1 className='main-title'>
+                Imaginary finance
+            </h1>
             <div className="stocks-field">
                 <FieldName />
                 <div className='stock-card'>
                     {stateStock.map(item =>
-                        <a href={item.ticker} key={item.ticker + 'a'}>
+                        <a
+                            href={item.ticker}
+                            key={item.ticker + 'link'}
+                            className="cards-block">
                             <MainBlockStocks
                                 key={item.ticker + 'id'}
                                 ticker={item.ticker}
                                 price={item.price}
                                 change={item.change}
-                                change_percent={item.change_percent}>
-                            </MainBlockStocks>
+                                change_percent={item.change_percent}
+                            />
+                            <AdditionalInformation
+                                key={item.ticker + 'ai'}
+                                exchange={item.exchange}
+                                last_trade_time={item.last_trade_time}
+                            />
                         </a>)}
                 </div>
             </div>
@@ -61,4 +73,33 @@ const FieldName = () => {
     )
 }
 
+
 export default StocksList;
+
+
+
+
+
+// {
+//     stateStock.map(item =>
+//         <a href={item.ticker} key={item.ticker + 'a'}>
+//             <MainBlockStocks
+//                 key={item.ticker + 'id'}
+//                 ticker={item.ticker}
+//                 price={item.price}
+//                 change={item.change}
+//                 change_percent={item.change_percent}>
+//                 <div>
+//                 </div>
+//             </MainBlockStocks>
+//             <AdditionalInformation
+//                 key={item.ticker + 'ai'}
+//                 exchange={item.exchange}
+//                 dividend={item.dividend}
+//                 yield={item.yield}
+//                 last_trade_time={item.last_trade_time}
+//             >
+
+//             </AdditionalInformation>
+//         </a>)
+// }
