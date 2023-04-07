@@ -1,0 +1,93 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Style for routes */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* Styles for App */
+.App {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.info-index,
+.main-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  height: 50px;
+  border-bottom: 1px rgb(160, 160, 160) solid;
+  transform: unset;
+  transition: 0.6s;
+}
+
+.info-index {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-field:hover {
+  background: #b3b3b7;
+  transform: unset;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.name-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-field {
+  width: 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.stocks-field {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 40%;
+  height: 55%;
+  left: 30%;
+  background-color: #d2d2df;
+  z-index: 1;
+}
+
+.ticker {
+  background-color: #63d189;
+  border-radius: 10px;
+}
+
+.stock-block {
+  width: 200px;
+  height: 200px;
+  background: #63d189;
+}
+
+.info-title {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.title {
+  width: 90px;
+}
